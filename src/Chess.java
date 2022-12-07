@@ -25,6 +25,7 @@ public class Chess {
             }
             System.out.println(); //Start a new row.
         }
+        board[0][4] = new King ("E1", false);
     }
 
     //Takes chess coords, eg. A8, and returns the piece at that location or null
@@ -48,6 +49,12 @@ public class Chess {
         }
         if (validMove){
             System.out.println(toMove.getSymbol() + " moves to " + endPosition);
+            int startRow = ChessUtilities.getRowFromPosition(startPosition);
+            int startColumn = ChessUtilities.getColumnFromPosition(startPosition);
+            int targetRow = ChessUtilities.getRowFromPosition(endPosition);
+            int targetColumn = ChessUtilities.getColumnFromPosition(endPosition);
+            board[targetRow][targetColumn] = board[startRow][startColumn];
+            board[startRow][startColumn] = null;
         } else{
             System.out.println("You cannot do that");
         }
