@@ -9,8 +9,14 @@ public class King extends Piece{
 
     //Kings can move in one square in any direction
     public boolean isValidMove(String targetPosition){
-        int column = ChessUtilities.getColumnFromPosition(targetPosition);
-        int row = ChessUtilities.getRowFromPosition(targetPosition);
-        return true;
+        int targetColumn = ChessUtilities.getColumnFromPosition(targetPosition);
+        int targetRow = ChessUtilities.getRowFromPosition(targetPosition);
+        if (targetColumn - column == 1 || targetRow - row == 1 ){
+          return true;
+        } else if (targetColumn - column == -1 || targetRow - row == -1){
+          return true;
+        } else{
+          return false;
+        }
     }
 }

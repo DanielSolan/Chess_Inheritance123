@@ -1,6 +1,6 @@
 public class Piece {
-    private int row;
-    private int column;
+    protected int row;
+    protected int column;
     private boolean isBlack;
     protected char symbol;
 
