@@ -11,11 +11,36 @@ public class Chess {
             board[1][c]= new Piece(1, c, false);
             board[6][c] = new Piece(6, c, true);
         }
+        for (int b = 0; b<8; b++){
+            if (b==0){
+                board[b][4] = new King("E1", false);
+            } else if (b==7){
+                board[b][4] = new King("E7", true);
+            }
+        }
+
+        board[0][0] = new Rook("A1", false);
+        board[0][7] = new Rook("H1", false);
+        board[0][1] = new Knight("B1", false);
+        board[0][6] = new Knight("G1", false);
+        board[0][2] = new Bishop("A1", false);
+        board[0][5] = new Bishop("H1", false);
+        board[0][3] = new Queen("D1", false);
+
+        board[7][0] = new Rook("A8", true);
+        board[7][7] = new Rook("H8", true);
+        board[7][1] = new Knight("B8", true);
+        board[7][6] = new Knight("G8", true);
+        board[7][2] = new Bishop("A8", true);
+        board[7][5] = new Bishop("H8", true);
+        board[7][3] = new Queen("D7", true);
+
     }
 
     //print the current board layout.
     public void display(){
         for (int r = 0; r<8; r++){
+            System.out.print("                                                                  ");
             for (int c=0; c<8; c++){
                 if (board[r][c] != null){
                     System.out.print(board[r][c].getSymbol() + " ");
@@ -25,7 +50,8 @@ public class Chess {
             }
             System.out.println(); //Start a new row.
         }
-        board[0][4] = new King ("E1", false);
+
+
     }
 
     //Takes chess coords, eg. A8, and returns the piece at that location or null
