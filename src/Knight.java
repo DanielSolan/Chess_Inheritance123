@@ -11,10 +11,12 @@ public class Knight extends Piece{
         int targetRow = ChessUtilities.getRowFromPosition(targetPosition);
         int targetColumn = ChessUtilities.getColumnFromPosition(targetPosition);
         //can't stand still
-        if (targetRow == startRow && targetColumn == startColumn){
+        int rowDifference = Math.abs(startRow - targetRow);
+        int columnDifference = Math.abs(startColumn-targetColumn);
+        if(super.isValidMove(targetPosition)==false){
             return false;
         }
-        if (((Math.abs(startRow - targetRow)==2) && Math.abs(startColumn-targetColumn)==1) || ((Math.abs(startRow - targetRow)==1) && Math.abs(startColumn-targetColumn)==2)){
+        if (((rowDifference==2) && columnDifference==1) || ((rowDifference==1) && columnDifference==2)){
             return true;
         } else{
             return false;

@@ -25,4 +25,8 @@ public class ChessUtilities {
     public static String rowToNumber(int r){
         return Integer.toString(r+1);
     }
+
+    public static String getPositionFromCoords(int row, int col){
+        return columnToLetter(col) + rowToNumber(row);
+    }
 }

@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Chess {
@@ -7,10 +8,24 @@ public class Chess {
     public Chess(){
         board = new Piece[8][8];
         //create the pawns
-        for (int c = 0; c<8; c++){
-            board[1][c]= new Piece(1, c, false);
-            board[6][c] = new Piece(6, c, true);
-        }
+        board[1][0] = new Pawn("A2", false);
+        board[1][1] = new Pawn("B2", false);
+        board[1][2] = new Pawn("C2", false);
+        board[1][3] = new Pawn("D2", false);
+        board[1][4] = new Pawn("E2", false);
+        board[1][5] = new Pawn("F2", false);
+        board[1][6] = new Pawn("G2", false);
+        board[1][7] = new Pawn("H2", false);
+        board[6][0] = new Pawn("A7", true);
+        board[6][1] = new Pawn("B7", true);
+        board[6][2] = new Pawn("C7", true);
+        board[6][3] = new Pawn("D7", true);
+        board[6][4] = new Pawn("E7", true);
+        board[6][5] = new Pawn("F7", true);
+        board[6][6] = new Pawn("G7", true);
+        board[6][7] = new Pawn("H7", true);
+
+
         for (int b = 0; b<8; b++){
             if (b==0){
                 board[b][4] = new King("E1", false);
@@ -74,6 +89,9 @@ public class Chess {
             validMove = toMove.isValidMove(endPosition);
         }
         if (validMove){
+            //check there are no pieces in the way
+
+            ArrayList<String> squares = toMove.passesThrough(endPosition);
             System.out.println(toMove.getSymbol() + " moves to " + endPosition);
             int startRow = ChessUtilities.getRowFromPosition(startPosition);
             int startColumn = ChessUtilities.getColumnFromPosition(startPosition);

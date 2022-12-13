@@ -1,5 +1,6 @@
 public class King extends Piece{
     private boolean inCheck;
+    private boolean hasCastled;
 
     public King(String position, boolean isBlack){
         super(position, isBlack);
@@ -26,7 +27,7 @@ public class King extends Piece{
         int targetRow = ChessUtilities.getRowFromPosition(targetPosition);
         int targetColumn = ChessUtilities.getColumnFromPosition(targetPosition);
         //can't stand still
-        if (targetRow == startRow && targetColumn == startColumn){
+        if(super.isValidMove(targetPosition)==false){
             return false;
         }
         //can't move more than one square in any direction.

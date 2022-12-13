@@ -11,7 +11,7 @@ public class Queen extends Piece{
         int targetRow = ChessUtilities.getRowFromPosition(targetPosition);
         int targetColumn = ChessUtilities.getColumnFromPosition(targetPosition);
         //can't stand still
-        if (targetRow == startRow && targetColumn == startColumn) {
+        if(super.isValidMove(targetPosition)==false){
             return false;
         }
         if (targetRow == startRow || targetColumn == startColumn){
