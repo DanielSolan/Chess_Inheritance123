@@ -1,5 +1,5 @@
 public class Pawn extends Piece{
-    private boolean hasMoved=false;
+    private boolean hasMoved = false;
 
     public Pawn(String position, boolean isBlack){
         super(position, isBlack);
@@ -16,20 +16,22 @@ public class Pawn extends Piece{
             return false;
         }
         if(hasMoved == false){
-            if(Math.abs(targetColumn- startColumn) == 2 || Math.abs(targetColumn- startColumn) == 1){
+            if(Math.abs(targetRow - startRow) == 2 || Math.abs(targetRow - startRow) == 1){
+                hasMoved = true;
                 return true;
             } else{
                 return false;
             }
         } else{
-            if(Math.abs(targetColumn- startColumn)==1){
+            if(Math.abs(targetRow - startRow)==1){
+                hasMoved = true;
                 return true;
             } else{
                 return false;
             }
         }
 
-        //Otherwise we cool
+        //Otherwise, we cool.
 
     }
 }

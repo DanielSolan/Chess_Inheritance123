@@ -69,7 +69,7 @@ public class Chess {
 
     }
 
-    //Takes chess coords, eg. A8, and returns the piece at that location or null
+    //Takes chess coords, e.g. A8, and returns the piece at that location or null
     public Piece getPieceAt(String position){
         int row = ChessUtilities.getRowFromPosition(position);
         int column = ChessUtilities.getColumnFromPosition(position);
